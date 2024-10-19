@@ -27,6 +27,7 @@
         <div id="chapters-container"></div>
         <!-- Add Achievement Form -->
     <h3>Add New Achievement</h3>
+    <div id="error-message" style="color: red;"></div>
     <form id="add-achievement-form">
         <label for="chapter">Chapter:</label>
         <select id="chapter" name="chapter">
@@ -47,7 +48,7 @@
         <label for="photo">Photo URL:</label>
         <input type="url" id="photo" name="photo" required>
 
-        <button type="submit">Add Achievement</button>
+        <button onclick="addData(event)">Add Achievement</button>
     </form>
         
     </body>
