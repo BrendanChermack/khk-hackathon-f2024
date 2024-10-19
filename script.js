@@ -14,6 +14,14 @@ async function fetchData() {
     }
 }
 
+function filterData(data) {
+    let selectedChapter = document.getElementById("chapterFilter").value;
+    
+    let filteredData = data.filter((item) => item.Chapter == selectedChapter)
+
+    return renderChapters(filteredData);
+}
+
 
 function renderChapters(data) {
     const container = document.getElementById('chapters-container');
