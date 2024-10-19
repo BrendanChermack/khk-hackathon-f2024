@@ -19,12 +19,67 @@ async function fetchData() {
     }
 }
 
+function addData(event) {
+    event.preventDefault();
+
+    let errorMessageDiv = document.getElementById('error-message');
+    errorMessageDiv.textContent = ''; // Clear previous error messages
+
+    //let achievement_form = document.getElementById('add-achievement-form');
+    let chapter = document.getElementById('chapter').value;
+    let title = document.getElementById('title').value;
+    let dateInput = document.getElementById('date').value;
+    let description = document.getElementById('description').value;
+    let photo = document.getElementById('photo').value;
+
+    if (!chapter || !title || !dateInput || !description || !photo) {
+        errorMessageDiv.textContent = 'All fields are required!';
+        return; // Exit the function if validation fails
+    }
+
+    let date = new Date(dateInput)
+    const formattedDate = `${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}/${date.getFullYear()}`;
+
+    console.log(chapter, title, date, description, photo);
+
+    //alert(chapter, title, date, description, photo);
+
+    let chapterEntry = globalData.find((entry) => entry.Chapter.toLowerCase() == chapter.toLowerCase())
+
+    console.log("adding entry: ", chapterEntry);
+
+    if (chapterEntry) {
+        // If chapter exists, push the new achievement  
+        chapterEntry.Achievements.push({
+            Date: formattedDate,
+            Title: title,
+            Description: description,
+            Photo: photo
+        });
+    } else {
+        // If the chapter doesn't exist, create a new chapter with the achievement
+        globalData.push({
+            Chapter: chapter,
+            Achievements: [{
+                Date: formattedDate,
+                Title: title,
+                Description: description,
+                Photo: photo
+            }]
+        });
+    }
+
+
+    globalFilteredData = globalData;    
+    filterData(); //refilter for new element
+}
+
 function filterData() {
     let data = globalData;
-    console.log(data);
+    //console.log(data);
 
     let selectedChapter = document.getElementById("chapterFilter").value;
-    console.log(selectedChapter);
+    //console.log(selectedChapter);
     if (selectedChapter == "all") {
         globalFilteredData = data;
         return renderChapters();
