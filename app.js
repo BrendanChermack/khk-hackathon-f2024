@@ -26,3 +26,4 @@ function showChapter(index) {
     chapterInf.style.display = "block";
 
 }
+
