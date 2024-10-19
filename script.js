@@ -56,19 +56,20 @@ function renderChapters(data) {
                     titleRow.appendChild(date);
                     contentWrapper.appendChild(titleRow);
 
-                    // Description
-                    const description = document.createElement('p');
-                    description.className = 'achievement-description';
-                    description.textContent = achievement.Description;
-                    contentWrapper.appendChild(description);
-
                     // Image Section
                     const img = document.createElement('img');
                     img.src = achievement.Photo;
                     img.alt = achievement.Title;
 
+                    // Description
+                    const description = document.createElement('p');
+                    description.className = 'achievement-description';
+                    description.textContent = achievement.Description;
+
+                    // Append elements
                     achievementDiv.appendChild(contentWrapper);
                     achievementDiv.appendChild(img);
+                    achievementDiv.appendChild(description);
                     chapterDiv.appendChild(achievementDiv);
                 }
             });
@@ -81,4 +82,5 @@ function renderChapters(data) {
         container.appendChild(chapterDiv);
     });
 }
+
 
