@@ -46,6 +46,9 @@ function renderChapters() {
         return;
     }
 
+    //clear container before rerendering
+    container.innerHTML = '';
+
     data.forEach(chapter => {
         const chapterDiv = document.createElement('div');
         chapterDiv.className = 'chapter';
