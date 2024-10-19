@@ -25,7 +25,30 @@
                 </div>
                 </div>
         <div id="chapters-container"></div>
-        
+        <!-- Add Achievement Form -->
+    <h3>Add New Achievement</h3>
+    <form id="add-achievement-form">
+        <label for="chapter">Chapter:</label>
+        <select id="chapter" name="chapter">
+            <option value="iota">Iota</option>
+            <option value="beta">Beta</option>
+            <option value="delta">Delta</option>
+        </select>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="photo">Photo URL:</label>
+        <input type="url" id="photo" name="photo" required>
+
+        <button type="submit">Add Achievement</button>
+    </form>
         
     </body>
     <script src="./script.js" >
