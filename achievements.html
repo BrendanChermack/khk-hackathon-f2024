@@ -1,13 +1,6 @@
 <html>
     
     <head>
-        <label for="chapterFilter">Filter By Chapter:</label>
-        <select id="chapterFilter" name="chapterFilter", onchange="filterData()">
-            <option value="all">All</option>
-            <option value="iota">Iota</option>
-            <option value="beta">Beta</option>
-            <option value="delta">Delta</option> 
-        </select>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>KHK Achievements</title>
@@ -16,7 +9,21 @@
         <link rel="stylesheet" href="./achievements.css">
     </head>
     <body>
-        <div id="achievements">Achievements</div>
+        <a href="/" class="back-arrow">
+            <img src="/assets/back-arrow.png" alt="" width="50" height="50">
+        </a>
+            <div id="achievements">Achievements</div>
+            <div>
+                <div id="filter">
+                <label for="chapterFilter" >Chapter Filter:</label>
+                <select id="chapterFilter" name="chapterFilter", onchange="filterData()">
+                    <option value="all">All</option>
+                    <option value="iota">Iota</option>
+                    <option value="beta">Beta</option>
+                    <option value="delta">Delta</option> 
+                </select>
+                </div>
+                </div>
         <div id="chapters-container"></div>
         
         

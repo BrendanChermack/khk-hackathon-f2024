@@ -1,16 +1,30 @@
 html, body{
     font-family:'Courier New'
 }
+
+#filter{
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 #achievements{
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the content */
     justify-content: center;
     font-size: 85px;
-    font-weight: 300;
+    font-weight: 450;
     padding: 10px;
     margin-top: 5px;
     text-transform: uppercase;
+}
+.back-arrow{
+    height: 5%;
+    width: 5%;
+    position: absolute;
+    padding: 10px;
 }
 .chapter {
     margin-bottom: 40px;
@@ -23,6 +37,7 @@ html, body{
     margin-bottom: 10px;
     margin-top: 20px;
     text-transform: uppercase;
+    font-weight: 400;
 
 }
 
@@ -53,7 +68,7 @@ html, body{
 .achievement-title {
     font-size: 20px;
     margin: 0;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 .achievement-date {
@@ -71,11 +86,16 @@ html, body{
 }
 
 .achievement img {
-    width: 62.5%;
+    width: 60vw;
     height: auto;
     object-fit: cover;
     margin-bottom: 10px;
     box-shadow: 
     0.75em -0.75em #f5bd02,
     -0.75em 0.75em rebeccapurple;
+    transition: all 0.5s;
+    }.achievement img:hover {
+    box-shadow:
+    1em -1em #f5bd02,
+    -1em 1em rebeccapurple;
     }
