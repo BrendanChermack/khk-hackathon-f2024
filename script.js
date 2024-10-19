@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", fetchData); // Ensure DOM is ready
 
+let globalData;
+let globalFilteredData;
+
 async function fetchData() {
     try {
         console.log('Fetching data...');
@@ -8,19 +11,43 @@ async function fetchData() {
 
         const data = await response.json();
         console.log('Data fetched:', data);
-        renderChapters(data);
+        globalData = data;
+        globalFilteredData = data;
+        filterData()
     } catch (error) {
         console.error('Error loading JSON data:', error);
     }
 }
 
+function filterData() {
+    let data = globalData;
+    console.log(data);
 
-function renderChapters(data) {
+    let selectedChapter = document.getElementById("chapterFilter").value;
+    console.log(selectedChapter);
+    if (selectedChapter == "all") {
+        globalFilteredData = data;
+        return renderChapters();
+    }
+    
+    let filteredData = data.filter((item) => item.Chapter.toLowerCase() == selectedChapter);
+
+    globalFilteredData = filteredData;
+    return renderChapters(filteredData);
+}
+
+
+function renderChapters() {
+    let data = globalFilteredData;
+    
     const container = document.getElementById('chapters-container');
     if (!container) {
         console.error('Container element not found!');
         return;
     }
+
+    //clear container before rerendering
+    container.innerHTML = '';
 
     data.forEach(chapter => {
         const chapterDiv = document.createElement('div');
