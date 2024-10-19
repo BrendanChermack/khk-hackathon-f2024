@@ -159,6 +159,7 @@ div.content {
     bottom: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 /* Responsive circle element */
@@ -710,7 +711,34 @@ h1 {
         font-size: 2.5vw;
     }
 }
-
+.section-achievements{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+#level{
+    z-index: -1;
+}
+.section-achievements button{
+    margin-top: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1;
+    width: 35vw;
+    height: 55px;
+    box-shadow:
+    0.75em -0.75em #f5bd02,
+    -0.75em 0.75em rebeccapurple;
+    transition: all 0.5s;
+}.section-achievements button:hover{
+box-shadow:
+    1em -1em #f5bd02,
+    -1em 1em rebeccapurple;
+}
 @media screen and (max-width: 600px) {
     .text-title {
         font-size: 18vw;
